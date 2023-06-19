@@ -1,7 +1,7 @@
 <template>
 <div id="App">
   <Sidebar/>
-  <router-view class="content"/>
+  <router-view/>
 </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 #app {
   font-family: 'Open Sans', sans-serif;
@@ -30,11 +30,5 @@ export default {
 body {
   margin: 0 auto;
   background: lightblue;
-}
-
-.content {
-  width: 70%;
-  margin-right: 0;
-  margin-left: auto;
 }
 </style>
