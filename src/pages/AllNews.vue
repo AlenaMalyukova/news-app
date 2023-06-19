@@ -7,10 +7,15 @@
       v-for="post in posts" 
       :key="post.id"
       :post="post"
-      @delete="deletePost"
+      @open-modal="openModal"
     />
   </div>
-  
+  <DeletePost
+    v-if="isOpenModal"
+    :isOpenModal="isOpen"
+    @close="closeModal"
+    @delete="deletePost"
+  />
 </div>
 </template>
 
@@ -18,15 +23,19 @@
 import axios from '../plugins/axios'
 import Loader from '../components/Loader.vue'
 import NewsCard from '../components/NewsCard.vue'
+import DeletePost from '../components/modal/DeletePost.vue'
 
 export default {
   components: {
     Loader,
     NewsCard,
+    DeletePost
   },
   data: () => ({
     posts: [],
+    postIdForDelete: null,
     isLoading: true,
+    isOpenModal: false
   }),
   async mounted() {
     await this.loadPosts();
@@ -42,15 +51,22 @@ export default {
 
     this.isLoading = false;
     },
-    async deletePost(id) {
+    async deletePost() {
       await axios({
         method: 'DELETE',
-        url: `/posts/${id}`
+        url: `/posts/${this.postIdForDelete}`
       });
 
-      // this.loadPosts(); С бэка приходят все посты, вместе с удалённым
-      // поэтому фильтрую посты на фронте
-      this.posts = this.posts.filter(post => post.id !== id)
+      this.posts = this.posts.filter(post => post.id !== this.postIdForDelete);
+
+      this.closeModal();
+    },
+    openModal(postId) {
+      this.isOpenModal = true;
+      this.postIdForDelete = postId;
+    },
+    closeModal() {
+      this.isOpenModal = false;
     }
   }
 }
@@ -58,9 +74,15 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  width: 70%;
+  width: 72%;
+  box-sizing: border-box;
   margin-right: 0;
   margin-left: auto;
   padding: 0 15px;
+}
+
+.posts {
+  background: #fff;
+  padding: 20px 15px;
 }
 </style>

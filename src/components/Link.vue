@@ -1,6 +1,6 @@
 <template>
   <router-link :class="`link ${activeCLass(to)}`" :to="to">
-    <span :class="`link__icon icon-${iconName}`" />
+    <span :class="`link__icon icon-${iconName}`"></span>
     <p class="link__text">{{ text }}</p>
   </router-link>
 </template>
@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .link {
-  border-top: 1px solid #00000027;
+  border-top: 1px solid #aaa8a8;
   color: #000;
   width: 100%;
   display: flex;
@@ -35,7 +35,7 @@ export default {
   cursor: pointer;
 
   &_active {
-    color: rgb(32, 112, 178);
+    color: #0971c7;
   }
 
   &__icon {
