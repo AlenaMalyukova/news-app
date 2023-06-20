@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <div class="param" v-for="(value, key) in copyParams" :key="key">
-        <div class="param__name"> {{ key }}: </div>
-        <div class="param__data"> {{ value }} </div>
+      <div class="param" v-for="(value, key) in params" :key="key">
+        <div class="param__name" v-if="value"> {{ key }}: </div>
+        <div class="param__data" v-if="value"> {{ value }} </div>
       </div>
     </div>
   </div>
@@ -14,11 +14,6 @@ export default {
   props: {
     params: Object,
   },
-  data() {
-    return {
-      copyParams: this.params,
-    }
-  }
 }
 </script>
 
