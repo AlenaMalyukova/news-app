@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     inputAttrs() {
-      const { value, ...rest } = this.$attrs;
+      const { ...rest } = this.$attrs;
       return rest;
     }
   },
