@@ -91,7 +91,7 @@ export default {
     font-weight: 500;
     border-radius: 8px;
     min-width: 150px;
-
+    cursor: pointer;
   }
 }
 .red-btn {
