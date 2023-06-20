@@ -27,7 +27,7 @@
     </div>
 
     <div class="block">
-      <UiButton @click="sendForm"/>
+      <UiButton @mousedown="sendForm"/>
     </div>
   </div>
 </template>
@@ -66,7 +66,7 @@ export default {
 
       this.$emit('send-form', params)
       
-      // this.clearForm()
+      this.clearForm()
     },
     clearForm() {
       this.name = null

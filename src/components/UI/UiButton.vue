@@ -1,6 +1,6 @@
 <template>
 
-<button class="ui-button" @click="click">{{ textBtn }}</button>
+<button class="ui-button" @mousedown="click">{{ textBtn }}</button>
 
 </template>
 
