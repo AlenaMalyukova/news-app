@@ -79,6 +79,9 @@ export default {
   margin-right: 0;
   margin-left: auto;
   padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .posts {
