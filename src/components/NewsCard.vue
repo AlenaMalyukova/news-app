@@ -66,6 +66,7 @@ export default {
     border-radius: 5px;
     font-size: 18px;
     font-weight: 500;
+    cursor: pointer;
   }
 }
 
@@ -81,6 +82,7 @@ export default {
     font-size: 24px;
     font-weight: 600;
     line-height: 1.3;
+    cursor: pointer;
 
     &_active {
       color: #0971c7;
