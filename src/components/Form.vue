@@ -9,7 +9,6 @@
       <UiInput v-model:value="email" placeholder="Email"/>
     </div>
     
-
     <div class="block">
       <span>Пол</span>
       <div class="radio-wrap">
@@ -18,8 +17,8 @@
       </div>
     </div>
 
-    <div class="block">
-      <UiTextArea v-model:value="message" placeholder="Сообщение"/>
+    <div class="block">Кол-во символов: {{ messageLength }}
+      <UiTextArea v-model:value="message"  placeholder="Сообщение"/>
     </div>
     
     <div class="block">
@@ -74,6 +73,11 @@ export default {
       this.gender = 'male'
       this.message = null
       this.agree = false
+    },
+  },
+  computed: {
+    messageLength() {
+      return this.message?.length || 0
     }
   }
 }
